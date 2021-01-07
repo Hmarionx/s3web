@@ -25,5 +25,7 @@
 ### Logs ###
 logs/
 
+### Divers ###
 .DS_Store
+.mvn
 
