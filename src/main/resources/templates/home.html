@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>AWS S3 EXAMPLES</title>
+</head>
+<body>
+
+    <form th:action="@{/upload}" method="post" enctype="multipart/form-data">
+        <div>
+            <label>Select File</label>
+        </div>
+        <div>
+            <input type="file" name="file">
+        </div>
+        <div>
+            <input type="submit" value="Upload">
+        </div>
+    </form>
+
+    <hr>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Aws S3 File</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="s3file : ${s3FileNames}">
+            <td th:text="${s3file}"/>
+            <td><a th:href="@{'/download/'+ ${s3file}}"> Download </a></td>
+            <td><a th:href="@{'/delete/'+ ${s3file}}"> Delete </a></td>
+        </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
